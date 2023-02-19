@@ -5,7 +5,6 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-#from setting_bulk import es
 from elasticsearch import Elasticsearch
 
 
@@ -24,7 +23,7 @@ class SearchView(APIView):
 
         try:
             docs = es.search(index='dictionary',
-                             doc_type='dictionary_datas',
+                             #doc_type='dictionary_datas',
                              body={
                                  "query": {
                                      "multi_match": {
@@ -35,7 +34,7 @@ class SearchView(APIView):
                                  },
                                  "_source": ["name", "about"]
                              })
-            print(docs+"나지롱")
+            print(docs)
 
             data_list = docs['hits']['hits']
             return Response(data_list)
