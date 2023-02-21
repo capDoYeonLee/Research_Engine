@@ -5,29 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from elasticsearch import Elasticsearch
 import json
-from elasticsearch_dsl import Document, Date, Integer, Keyword, Text, connections
 
-# Elasticsearch 연결
-# connections.create_connection(hosts=['localhost'])
-#
-# # Elasticsearch 인덱스 및 매핑 정의
-# class MyDocument(Document):
-#     title = Text(analyzer='snowball', fields={'raw': Keyword()})
-#     body = Text(analyzer='snowball')
-#     timestamp = Date()
-#     author_id = Integer()
-#
-#     class Index:
-#         name = 'dictionary'
-#         settings = {
-#             'number_of_shards': 1,
-#             'number_of_replicas': 0
-#         }
-# MyDocument.init()
-#
-# # Elasticsearch에 데이터 추가
-# doc = MyDocument(title='My Title', body='Some text', timestamp=datetime.now(), author_id=1)
-# doc.save()
 
 class SearchView(APIView):
 
